@@ -1,0 +1,8 @@
+2024-10-26 03:59:23,954 - read <class 'data_processing.ml_20m'>
+2024-10-26 04:01:06,930 - Namespace(data_dir='./data/', output_dir='output/', data_name='ml-20m', llm_path='./bert-base-uncased', do_eval=True, load_model='GRU4Rec', train_name='Oct-26-2024_03-59-23', num_items=131262, num_users=138493, num_neg_sample=100, lr=0.003, weight_decay=0, batch_size=128, num_epochs=64, patience=5, num_workers=4, seed=42, model_type='GRU4Rec', max_seq_length=50, dropout_rate=0.5, hidden_size=64, num_hidden_layers=2, attn_dropout_rate=0.5, n_heads=8, e_layers=4, alpha=0.8, gru_hidden_size=64, initializer_range=0.02, device=device(type='cuda'), checkpoint_path='output/ml-20m/GRU4Rec.pt', dim_user_discrete_data=[], dim_item_discrete_data=20)
+2024-10-26 04:01:07,081 - GRU4Rec(
+  (item_embeddings): Embedding(131263, 64, padding_idx=0)
+  (gru_layers): GRU(64, 64, num_layers=2, bias=False, batch_first=True)
+  (emb_dropout): Dropout(p=0.5, inplace=False)
+  (dense): Linear(in_features=64, out_features=64, bias=True)
+)

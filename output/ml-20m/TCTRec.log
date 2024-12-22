@@ -1,0 +1,476 @@
+2024-10-24 21:33:20,818 - read <class 'data_processing.ml_20m'>
+2024-10-24 21:35:00,152 - Namespace(data_dir='./data/', output_dir='output/', data_name='ml-20m', llm_path='./bert-base-uncased', do_eval=False, load_model='TCTRec', train_name='Oct-24-2024_21-33-20', num_items=131262, num_users=138493, num_neg_sample=100, lr=0.003, weight_decay=0, batch_size=128, num_epochs=64, patience=5, num_workers=4, model_type='TCTRec', max_seq_length=50, dropout_rate=0.5, hidden_size=64, num_hidden_layers=2, attn_dropout_rate=0.5, n_heads=8, e_layers=4, alpha=0.8, device=device(type='cuda'), checkpoint_path='output/ml-20m/TCTRec.pt', dim_user_discrete_data=[], dim_item_discrete_data=20)
+2024-10-24 21:35:00,343 - TCTRec(
+  (BiTransformer): Bidimensional_Transformer(
+    (encoder): Encoder(
+      (embedding): Embedding(131263, 64, padding_idx=0)
+      (ivert_embedding): Linear(in_features=50, out_features=64, bias=True)
+      (static_embedding): Linear(in_features=1, out_features=64, bias=True)
+      (dropout): Dropout(p=0.5, inplace=False)
+      (projector): Linear(in_features=64, out_features=50, bias=True)
+      (pos_emb): Embedding(50, 64)
+      (layers): ModuleList(
+        (0-3): 4 x EncoderLayer(
+          (mha): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (ivert_mha): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (ff): FeedForward(
+            (linear1): Linear(in_features=64, out_features=64, bias=True)
+            (dropout): Dropout(p=0.5, inplace=False)
+            (linear2): Linear(in_features=64, out_features=64, bias=True)
+          )
+          (ivert_ff): FeedForward(
+            (linear1): Linear(in_features=64, out_features=64, bias=True)
+            (dropout): Dropout(p=0.5, inplace=False)
+            (linear2): Linear(in_features=64, out_features=64, bias=True)
+          )
+          (layernorm1): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (layernorm2): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (ivert_layernorm1): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (ivert_layernorm2): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (dropout): Dropout(p=0.5, inplace=False)
+        )
+      )
+    )
+  )
+)
+2024-10-24 21:35:00,921 - training start
+2024-10-24 21:35:52,274 - Epoch: 1/64 Batch: 1/1082 Time: 51.4s Loss: 5.45   Average_Loss: 5.45
+2024-10-24 21:37:29,462 - Epoch: 1/64 Batch: 33/1082 Time: 148.5s Loss: 3.60   Average_Loss: 4.52
+2024-10-24 21:39:45,652 - Epoch: 1/64 Batch: 65/1082 Time: 284.7s Loss: 2.26   Average_Loss: 3.71
+2024-10-24 21:42:01,430 - Epoch: 1/64 Batch: 97/1082 Time: 420.5s Loss: 1.53   Average_Loss: 3.10
+2024-10-24 21:43:31,558 - Epoch: 1/64 Batch: 129/1082 Time: 510.6s Loss: 1.17   Average_Loss: 2.66
+2024-10-24 21:45:46,847 - Epoch: 1/64 Batch: 161/1082 Time: 645.9s Loss: 0.93   Average_Loss: 2.34
+2024-10-24 21:48:07,575 - Epoch: 1/64 Batch: 193/1082 Time: 786.7s Loss: 0.77   Average_Loss: 2.10
+2024-10-24 21:49:30,646 - Epoch: 1/64 Batch: 225/1082 Time: 869.7s Loss: 0.76   Average_Loss: 1.91
+2024-10-24 21:51:42,133 - Epoch: 1/64 Batch: 257/1082 Time: 1001.2s Loss: 0.68   Average_Loss: 1.76
+2024-10-24 21:54:04,431 - Epoch: 1/64 Batch: 289/1082 Time: 1143.5s Loss: 0.66   Average_Loss: 1.64
+2024-10-24 21:55:37,934 - Epoch: 1/64 Batch: 321/1082 Time: 1237.0s Loss: 0.61   Average_Loss: 1.54
+2024-10-24 21:57:52,578 - Epoch: 1/64 Batch: 353/1082 Time: 1371.7s Loss: 0.59   Average_Loss: 1.45
+2024-10-24 21:59:57,873 - Epoch: 1/64 Batch: 385/1082 Time: 1497.0s Loss: 0.58   Average_Loss: 1.38
+2024-10-24 22:01:28,741 - Epoch: 1/64 Batch: 417/1082 Time: 1587.8s Loss: 0.57   Average_Loss: 1.32
+2024-10-24 22:03:41,347 - Epoch: 1/64 Batch: 449/1082 Time: 1720.4s Loss: 0.56   Average_Loss: 1.26
+2024-10-24 22:05:50,652 - Epoch: 1/64 Batch: 481/1082 Time: 1849.7s Loss: 0.55   Average_Loss: 1.22
+2024-10-24 22:07:29,474 - Epoch: 1/64 Batch: 513/1082 Time: 1948.6s Loss: 0.53   Average_Loss: 1.18
+2024-10-24 22:09:22,266 - Epoch: 1/64 Batch: 545/1082 Time: 2061.3s Loss: 0.52   Average_Loss: 1.14
+2024-10-24 22:11:21,980 - Epoch: 1/64 Batch: 577/1082 Time: 2181.1s Loss: 0.56   Average_Loss: 1.11
+2024-10-24 22:13:22,159 - Epoch: 1/64 Batch: 609/1082 Time: 2301.2s Loss: 0.53   Average_Loss: 1.08
+2024-10-24 22:15:15,248 - Epoch: 1/64 Batch: 641/1082 Time: 2414.3s Loss: 0.54   Average_Loss: 1.05
+2024-10-24 22:17:12,235 - Epoch: 1/64 Batch: 673/1082 Time: 2531.3s Loss: 0.53   Average_Loss: 1.02
+2024-10-24 22:19:15,862 - Epoch: 1/64 Batch: 705/1082 Time: 2654.9s Loss: 0.56   Average_Loss: 1.00
+2024-10-24 22:20:59,549 - Epoch: 1/64 Batch: 737/1082 Time: 2758.6s Loss: 0.52   Average_Loss: 0.98
+2024-10-24 22:22:59,637 - Epoch: 1/64 Batch: 769/1082 Time: 2878.7s Loss: 0.56   Average_Loss: 0.96
+2024-10-24 22:25:10,350 - Epoch: 1/64 Batch: 801/1082 Time: 3009.4s Loss: 0.60   Average_Loss: 0.95
+2024-10-24 22:26:58,170 - Epoch: 1/64 Batch: 833/1082 Time: 3117.2s Loss: 0.56   Average_Loss: 0.93
+2024-10-24 22:28:40,745 - Epoch: 1/64 Batch: 865/1082 Time: 3219.8s Loss: 0.51   Average_Loss: 0.92
+2024-10-24 22:30:47,733 - Epoch: 1/64 Batch: 897/1082 Time: 3346.8s Loss: 0.50   Average_Loss: 0.90
+2024-10-24 22:32:46,967 - Epoch: 1/64 Batch: 929/1082 Time: 3466.0s Loss: 0.49   Average_Loss: 0.89
+2024-10-24 22:34:17,659 - Epoch: 1/64 Batch: 961/1082 Time: 3556.7s Loss: 0.56   Average_Loss: 0.88
+2024-10-24 22:36:36,128 - Epoch: 1/64 Batch: 993/1082 Time: 3695.2s Loss: 0.53   Average_Loss: 0.87
+2024-10-24 22:38:33,863 - Epoch: 1/64 Batch: 1025/1082 Time: 3812.9s Loss: 0.52   Average_Loss: 0.86
+2024-10-24 22:40:21,336 - Epoch: 1/64 Batch: 1057/1082 Time: 3920.4s Loss: 0.50   Average_Loss: 0.85
+2024-10-24 22:41:16,111 - 
+Epoch 1/64,  Loss: 0.8388999145264546, Total time: 1h 6m 15s
+2024-10-24 22:41:16,112 - -----------------validate-----------------
+2024-10-25 00:00:43,808 - Epoch 1, total_user:138493.0 nDCG@5: 0.34468033812341436, HR5: 0.6492024867682843, nDCG@10: 0.38925965627000303, HR10: 0.7937440881488596, nDCG@20: 0.4143676350671106, HR20: 0.8943340096611381
+2024-10-25 00:00:43,809 - Validation score increased.  Saving model ...
+2024-10-25 00:01:31,276 - Epoch: 2/64 Batch: 1/1082 Time: 47.4s Loss: 0.51   Average_Loss: 0.51
+2024-10-25 00:03:17,745 - Epoch: 2/64 Batch: 33/1082 Time: 153.9s Loss: 0.52   Average_Loss: 0.53
+2024-10-25 00:05:35,973 - Epoch: 2/64 Batch: 65/1082 Time: 292.1s Loss: 0.50   Average_Loss: 0.53
+2024-10-25 00:07:46,541 - Epoch: 2/64 Batch: 97/1082 Time: 422.7s Loss: 0.48   Average_Loss: 0.53
+2024-10-25 00:09:20,955 - Epoch: 2/64 Batch: 129/1082 Time: 517.1s Loss: 0.57   Average_Loss: 0.53
+2024-10-25 00:11:41,110 - Epoch: 2/64 Batch: 161/1082 Time: 657.2s Loss: 0.52   Average_Loss: 0.53
+2024-10-25 00:13:39,677 - Epoch: 2/64 Batch: 193/1082 Time: 775.8s Loss: 0.51   Average_Loss: 0.53
+2024-10-25 00:15:13,056 - Epoch: 2/64 Batch: 225/1082 Time: 869.2s Loss: 0.57   Average_Loss: 0.53
+2024-10-25 00:17:22,332 - Epoch: 2/64 Batch: 257/1082 Time: 998.5s Loss: 0.50   Average_Loss: 0.53
+2024-10-25 00:19:28,950 - Epoch: 2/64 Batch: 289/1082 Time: 1125.1s Loss: 0.47   Average_Loss: 0.53
+2024-10-25 00:21:04,373 - Epoch: 2/64 Batch: 321/1082 Time: 1220.5s Loss: 0.52   Average_Loss: 0.53
+2024-10-25 00:23:15,852 - Epoch: 2/64 Batch: 353/1082 Time: 1352.0s Loss: 0.47   Average_Loss: 0.53
+2024-10-25 00:25:30,931 - Epoch: 2/64 Batch: 385/1082 Time: 1487.1s Loss: 0.52   Average_Loss: 0.53
+2024-10-25 00:26:58,585 - Epoch: 2/64 Batch: 417/1082 Time: 1574.7s Loss: 0.56   Average_Loss: 0.53
+2024-10-25 00:29:08,335 - Epoch: 2/64 Batch: 449/1082 Time: 1704.5s Loss: 0.52   Average_Loss: 0.53
+2024-10-25 00:31:18,051 - Epoch: 2/64 Batch: 481/1082 Time: 1834.2s Loss: 0.50   Average_Loss: 0.53
+2024-10-25 00:32:38,639 - Epoch: 2/64 Batch: 513/1082 Time: 1914.8s Loss: 0.51   Average_Loss: 0.53
+2024-10-25 00:34:50,074 - Epoch: 2/64 Batch: 545/1082 Time: 2046.2s Loss: 0.50   Average_Loss: 0.53
+2024-10-25 00:37:07,564 - Epoch: 2/64 Batch: 577/1082 Time: 2183.7s Loss: 0.51   Average_Loss: 0.53
+2024-10-25 00:38:32,152 - Epoch: 2/64 Batch: 609/1082 Time: 2268.3s Loss: 0.52   Average_Loss: 0.53
+2024-10-25 00:40:37,165 - Epoch: 2/64 Batch: 641/1082 Time: 2393.3s Loss: 0.52   Average_Loss: 0.53
+2024-10-25 00:42:53,648 - Epoch: 2/64 Batch: 673/1082 Time: 2529.8s Loss: 0.51   Average_Loss: 0.53
+2024-10-25 00:44:20,367 - Epoch: 2/64 Batch: 705/1082 Time: 2616.5s Loss: 0.49   Average_Loss: 0.53
+2024-10-25 00:46:32,662 - Epoch: 2/64 Batch: 737/1082 Time: 2748.8s Loss: 0.51   Average_Loss: 0.53
+2024-10-25 00:48:36,461 - Epoch: 2/64 Batch: 769/1082 Time: 2872.6s Loss: 0.53   Average_Loss: 0.53
+2024-10-25 00:50:17,142 - Epoch: 2/64 Batch: 801/1082 Time: 2973.3s Loss: 0.53   Average_Loss: 0.53
+2024-10-25 00:52:25,873 - Epoch: 2/64 Batch: 833/1082 Time: 3102.0s Loss: 0.54   Average_Loss: 0.53
+2024-10-25 00:54:39,656 - Epoch: 2/64 Batch: 865/1082 Time: 3235.8s Loss: 0.50   Average_Loss: 0.53
+2024-10-25 00:56:08,060 - Epoch: 2/64 Batch: 897/1082 Time: 3324.2s Loss: 0.51   Average_Loss: 0.53
+2024-10-25 00:58:21,265 - Epoch: 2/64 Batch: 929/1082 Time: 3457.4s Loss: 0.53   Average_Loss: 0.53
+2024-10-25 01:00:30,577 - Epoch: 2/64 Batch: 961/1082 Time: 3586.7s Loss: 0.52   Average_Loss: 0.53
+2024-10-25 01:02:05,758 - Epoch: 2/64 Batch: 993/1082 Time: 3681.9s Loss: 0.53   Average_Loss: 0.53
+2024-10-25 01:04:23,036 - Epoch: 2/64 Batch: 1025/1082 Time: 3819.2s Loss: 0.52   Average_Loss: 0.53
+2024-10-25 01:06:16,148 - Epoch: 2/64 Batch: 1057/1082 Time: 3932.3s Loss: 0.53   Average_Loss: 0.53
+2024-10-25 01:06:59,262 - 
+Epoch 2/64,  Loss: 0.5249257146926553, Total time: 1h 6m 15s
+2024-10-25 01:06:59,263 - -----------------validate-----------------
+2024-10-25 02:26:30,005 - Epoch 2, total_user:138493.0 nDCG@5: 0.34512520388446555, HR5: 0.6515563963521622, nDCG@10: 0.38988810721156625, HR10: 0.7965817766962952, nDCG@20: 0.41471914772708257, HR20: 0.8960164051612717
+2024-10-25 02:26:30,006 - Validation score increased.  Saving model ...
+2024-10-25 02:27:20,458 - Epoch: 3/64 Batch: 1/1082 Time: 50.3s Loss: 0.52   Average_Loss: 0.52
+2024-10-25 02:28:58,637 - Epoch: 3/64 Batch: 33/1082 Time: 148.5s Loss: 0.53   Average_Loss: 0.53
+2024-10-25 02:31:23,834 - Epoch: 3/64 Batch: 65/1082 Time: 293.7s Loss: 0.54   Average_Loss: 0.53
+2024-10-25 02:33:28,865 - Epoch: 3/64 Batch: 97/1082 Time: 418.7s Loss: 0.59   Average_Loss: 0.53
+2024-10-25 02:34:59,073 - Epoch: 3/64 Batch: 129/1082 Time: 508.9s Loss: 0.50   Average_Loss: 0.53
+2024-10-25 02:37:07,849 - Epoch: 3/64 Batch: 161/1082 Time: 637.7s Loss: 0.49   Average_Loss: 0.53
+2024-10-25 02:39:18,255 - Epoch: 3/64 Batch: 193/1082 Time: 768.1s Loss: 0.49   Average_Loss: 0.52
+2024-10-25 02:40:59,551 - Epoch: 3/64 Batch: 225/1082 Time: 869.4s Loss: 0.50   Average_Loss: 0.52
+2024-10-25 02:43:10,460 - Epoch: 3/64 Batch: 257/1082 Time: 1000.3s Loss: 0.49   Average_Loss: 0.52
+2024-10-25 02:45:18,462 - Epoch: 3/64 Batch: 289/1082 Time: 1128.3s Loss: 0.51   Average_Loss: 0.52
+2024-10-25 02:47:15,435 - Epoch: 3/64 Batch: 321/1082 Time: 1245.3s Loss: 0.54   Average_Loss: 0.52
+2024-10-25 02:49:25,183 - Epoch: 3/64 Batch: 353/1082 Time: 1375.0s Loss: 0.51   Average_Loss: 0.52
+2024-10-25 02:51:03,234 - Epoch: 3/64 Batch: 385/1082 Time: 1473.1s Loss: 0.51   Average_Loss: 0.52
+2024-10-25 02:53:04,569 - Epoch: 3/64 Batch: 417/1082 Time: 1594.4s Loss: 0.54   Average_Loss: 0.52
+2024-10-25 02:55:11,546 - Epoch: 3/64 Batch: 449/1082 Time: 1721.4s Loss: 0.50   Average_Loss: 0.52
+2024-10-25 02:56:39,860 - Epoch: 3/64 Batch: 481/1082 Time: 1809.7s Loss: 0.50   Average_Loss: 0.52
+2024-10-25 02:58:47,569 - Epoch: 3/64 Batch: 513/1082 Time: 1937.4s Loss: 0.49   Average_Loss: 0.52
+2024-10-25 03:00:58,947 - Epoch: 3/64 Batch: 545/1082 Time: 2068.8s Loss: 0.54   Average_Loss: 0.52
+2024-10-25 03:02:23,835 - Epoch: 3/64 Batch: 577/1082 Time: 2153.7s Loss: 0.51   Average_Loss: 0.52
+2024-10-25 03:04:23,766 - Epoch: 3/64 Batch: 609/1082 Time: 2273.6s Loss: 0.50   Average_Loss: 0.52
+2024-10-25 03:06:38,863 - Epoch: 3/64 Batch: 641/1082 Time: 2408.7s Loss: 0.55   Average_Loss: 0.52
+2024-10-25 03:08:05,952 - Epoch: 3/64 Batch: 673/1082 Time: 2495.8s Loss: 0.51   Average_Loss: 0.52
+2024-10-25 03:10:17,364 - Epoch: 3/64 Batch: 705/1082 Time: 2627.2s Loss: 0.53   Average_Loss: 0.52
+2024-10-25 03:12:30,767 - Epoch: 3/64 Batch: 737/1082 Time: 2760.6s Loss: 0.51   Average_Loss: 0.52
+2024-10-25 03:14:04,280 - Epoch: 3/64 Batch: 769/1082 Time: 2854.1s Loss: 0.54   Average_Loss: 0.52
+2024-10-25 03:16:09,047 - Epoch: 3/64 Batch: 801/1082 Time: 2978.9s Loss: 0.51   Average_Loss: 0.52
+2024-10-25 03:18:34,163 - Epoch: 3/64 Batch: 833/1082 Time: 3124.0s Loss: 0.50   Average_Loss: 0.52
+2024-10-25 03:19:57,276 - Epoch: 3/64 Batch: 865/1082 Time: 3207.1s Loss: 0.52   Average_Loss: 0.52
+2024-10-25 03:22:08,080 - Epoch: 3/64 Batch: 897/1082 Time: 3337.9s Loss: 0.53   Average_Loss: 0.52
+2024-10-25 03:24:16,037 - Epoch: 3/64 Batch: 929/1082 Time: 3465.9s Loss: 0.54   Average_Loss: 0.52
+2024-10-25 03:25:56,493 - Epoch: 3/64 Batch: 961/1082 Time: 3566.3s Loss: 0.53   Average_Loss: 0.52
+2024-10-25 03:28:08,581 - Epoch: 3/64 Batch: 993/1082 Time: 3698.4s Loss: 0.53   Average_Loss: 0.52
+2024-10-25 03:30:23,774 - Epoch: 3/64 Batch: 1025/1082 Time: 3833.6s Loss: 0.50   Average_Loss: 0.52
+2024-10-25 03:31:50,833 - Epoch: 3/64 Batch: 1057/1082 Time: 3920.7s Loss: 0.54   Average_Loss: 0.52
+2024-10-25 03:32:55,060 - 
+Epoch 3/64,  Loss: 0.5212459012232514, Total time: 1h 6m 24s
+2024-10-25 03:32:55,061 - -----------------validate-----------------
+2024-10-25 04:53:14,358 - Epoch 3, total_user:138493.0 nDCG@5: 0.34581348937973033, HR5: 0.6531449242922025, nDCG@10: 0.3896174871110993, HR10: 0.7951665427133502, nDCG@20: 0.4148089374712867, HR20: 0.8960958315582737
+2024-10-25 04:53:14,359 - Validation score increased.  Saving model ...
+2024-10-25 04:53:56,672 - Epoch: 4/64 Batch: 1/1082 Time: 42.2s Loss: 0.52   Average_Loss: 0.52
+2024-10-25 04:55:27,533 - Epoch: 4/64 Batch: 33/1082 Time: 133.0s Loss: 0.51   Average_Loss: 0.52
+2024-10-25 04:57:40,175 - Epoch: 4/64 Batch: 65/1082 Time: 265.7s Loss: 0.53   Average_Loss: 0.52
+2024-10-25 04:59:44,665 - Epoch: 4/64 Batch: 97/1082 Time: 390.1s Loss: 0.49   Average_Loss: 0.52
+2024-10-25 05:01:26,237 - Epoch: 4/64 Batch: 129/1082 Time: 491.7s Loss: 0.52   Average_Loss: 0.52
+2024-10-25 05:03:22,467 - Epoch: 4/64 Batch: 161/1082 Time: 608.0s Loss: 0.48   Average_Loss: 0.52
+2024-10-25 05:05:17,634 - Epoch: 4/64 Batch: 193/1082 Time: 723.1s Loss: 0.51   Average_Loss: 0.52
+2024-10-25 05:07:09,783 - Epoch: 4/64 Batch: 225/1082 Time: 835.3s Loss: 0.51   Average_Loss: 0.52
+2024-10-25 05:08:56,441 - Epoch: 4/64 Batch: 257/1082 Time: 941.9s Loss: 0.54   Average_Loss: 0.52
+2024-10-25 05:10:39,955 - Epoch: 4/64 Batch: 289/1082 Time: 1045.4s Loss: 0.50   Average_Loss: 0.52
+2024-10-25 05:12:47,875 - Epoch: 4/64 Batch: 321/1082 Time: 1173.4s Loss: 0.49   Average_Loss: 0.52
+2024-10-25 05:14:38,772 - Epoch: 4/64 Batch: 353/1082 Time: 1284.3s Loss: 0.50   Average_Loss: 0.52
+2024-10-25 05:16:19,556 - Epoch: 4/64 Batch: 385/1082 Time: 1385.0s Loss: 0.54   Average_Loss: 0.52
+2024-10-25 05:18:35,827 - Epoch: 4/64 Batch: 417/1082 Time: 1521.3s Loss: 0.52   Average_Loss: 0.52
+2024-10-25 05:20:29,636 - Epoch: 4/64 Batch: 449/1082 Time: 1635.1s Loss: 0.53   Average_Loss: 0.52
+2024-10-25 05:22:01,256 - Epoch: 4/64 Batch: 481/1082 Time: 1726.7s Loss: 0.53   Average_Loss: 0.52
+2024-10-25 05:24:03,546 - Epoch: 4/64 Batch: 513/1082 Time: 1849.0s Loss: 0.51   Average_Loss: 0.52
+2024-10-25 05:25:34,737 - Epoch: 4/64 Batch: 545/1082 Time: 1940.2s Loss: 0.55   Average_Loss: 0.52
+2024-10-25 05:27:37,569 - Epoch: 4/64 Batch: 577/1082 Time: 2063.1s Loss: 0.47   Average_Loss: 0.52
+2024-10-25 05:29:37,152 - Epoch: 4/64 Batch: 609/1082 Time: 2182.6s Loss: 0.56   Average_Loss: 0.52
+2024-10-25 05:31:19,852 - Epoch: 4/64 Batch: 641/1082 Time: 2285.3s Loss: 0.56   Average_Loss: 0.52
+2024-10-25 05:33:22,132 - Epoch: 4/64 Batch: 673/1082 Time: 2407.6s Loss: 0.55   Average_Loss: 0.52
+2024-10-25 05:35:31,548 - Epoch: 4/64 Batch: 705/1082 Time: 2537.0s Loss: 0.48   Average_Loss: 0.52
+2024-10-25 05:36:59,142 - Epoch: 4/64 Batch: 737/1082 Time: 2624.6s Loss: 0.61   Average_Loss: 0.52
+2024-10-25 05:39:02,170 - Epoch: 4/64 Batch: 769/1082 Time: 2747.7s Loss: 0.50   Average_Loss: 0.52
+2024-10-25 05:40:59,046 - Epoch: 4/64 Batch: 801/1082 Time: 2864.5s Loss: 0.52   Average_Loss: 0.52
+2024-10-25 05:42:27,446 - Epoch: 4/64 Batch: 833/1082 Time: 2952.9s Loss: 0.49   Average_Loss: 0.52
+2024-10-25 05:44:33,475 - Epoch: 4/64 Batch: 865/1082 Time: 3079.0s Loss: 0.52   Average_Loss: 0.52
+2024-10-25 05:46:36,958 - Epoch: 4/64 Batch: 897/1082 Time: 3202.4s Loss: 0.49   Average_Loss: 0.52
+2024-10-25 05:48:20,169 - Epoch: 4/64 Batch: 929/1082 Time: 3305.7s Loss: 0.57   Average_Loss: 0.52
+2024-10-25 05:50:00,757 - Epoch: 4/64 Batch: 961/1082 Time: 3406.2s Loss: 0.53   Average_Loss: 0.52
+2024-10-25 05:52:20,477 - Epoch: 4/64 Batch: 993/1082 Time: 3546.0s Loss: 0.50   Average_Loss: 0.52
+2024-10-25 05:53:52,834 - Epoch: 4/64 Batch: 1025/1082 Time: 3638.3s Loss: 0.51   Average_Loss: 0.52
+2024-10-25 05:55:55,333 - Epoch: 4/64 Batch: 1057/1082 Time: 3760.8s Loss: 0.54   Average_Loss: 0.52
+2024-10-25 05:56:50,395 - 
+Epoch 4/64,  Loss: 0.5200521925571004, Total time: 1h 3m 35s
+2024-10-25 05:56:50,396 - -----------------validate-----------------
+2024-10-25 07:17:41,887 - Epoch 4, total_user:138493.0 nDCG@5: 0.34671027565418217, HR5: 0.6531232625475656, nDCG@10: 0.3908507669042796, HR10: 0.7961702035481938, nDCG@20: 0.415766829979766, HR20: 0.8959008758565414
+2024-10-25 07:17:41,888 - Validation score increased.  Saving model ...
+2024-10-25 07:18:25,260 - Epoch: 5/64 Batch: 1/1082 Time: 43.2s Loss: 0.50   Average_Loss: 0.50
+2024-10-25 07:20:08,666 - Epoch: 5/64 Batch: 33/1082 Time: 146.6s Loss: 0.53   Average_Loss: 0.52
+2024-10-25 07:22:27,850 - Epoch: 5/64 Batch: 65/1082 Time: 285.8s Loss: 0.52   Average_Loss: 0.52
+2024-10-25 07:24:15,585 - Epoch: 5/64 Batch: 97/1082 Time: 393.5s Loss: 0.51   Average_Loss: 0.52
+2024-10-25 07:26:03,963 - Epoch: 5/64 Batch: 129/1082 Time: 501.9s Loss: 0.52   Average_Loss: 0.52
+2024-10-25 07:28:04,683 - Epoch: 5/64 Batch: 161/1082 Time: 622.6s Loss: 0.50   Average_Loss: 0.52
+2024-10-25 07:29:55,250 - Epoch: 5/64 Batch: 193/1082 Time: 733.2s Loss: 0.51   Average_Loss: 0.52
+2024-10-25 07:31:54,164 - Epoch: 5/64 Batch: 225/1082 Time: 852.1s Loss: 0.51   Average_Loss: 0.52
+2024-10-25 07:34:04,695 - Epoch: 5/64 Batch: 257/1082 Time: 982.7s Loss: 0.52   Average_Loss: 0.52
+2024-10-25 07:35:23,946 - Epoch: 5/64 Batch: 289/1082 Time: 1061.9s Loss: 0.54   Average_Loss: 0.52
+2024-10-25 07:37:26,451 - Epoch: 5/64 Batch: 321/1082 Time: 1184.4s Loss: 0.52   Average_Loss: 0.52
+2024-10-25 07:39:25,657 - Epoch: 5/64 Batch: 353/1082 Time: 1303.6s Loss: 0.51   Average_Loss: 0.52
+2024-10-25 07:41:13,442 - Epoch: 5/64 Batch: 385/1082 Time: 1411.4s Loss: 0.52   Average_Loss: 0.52
+2024-10-25 07:43:08,059 - Epoch: 5/64 Batch: 417/1082 Time: 1526.0s Loss: 0.54   Average_Loss: 0.52
+2024-10-25 07:45:10,951 - Epoch: 5/64 Batch: 449/1082 Time: 1648.9s Loss: 0.50   Average_Loss: 0.52
+2024-10-25 07:47:14,041 - Epoch: 5/64 Batch: 481/1082 Time: 1772.0s Loss: 0.51   Average_Loss: 0.52
+2024-10-25 07:48:40,883 - Epoch: 5/64 Batch: 513/1082 Time: 1858.8s Loss: 0.51   Average_Loss: 0.52
+2024-10-25 07:50:42,668 - Epoch: 5/64 Batch: 545/1082 Time: 1980.6s Loss: 0.53   Average_Loss: 0.52
+2024-10-25 07:52:57,351 - Epoch: 5/64 Batch: 577/1082 Time: 2115.3s Loss: 0.50   Average_Loss: 0.52
+2024-10-25 07:54:20,659 - Epoch: 5/64 Batch: 609/1082 Time: 2198.6s Loss: 0.55   Average_Loss: 0.52
+2024-10-25 07:56:26,873 - Epoch: 5/64 Batch: 641/1082 Time: 2324.8s Loss: 0.55   Average_Loss: 0.52
+2024-10-25 07:58:28,533 - Epoch: 5/64 Batch: 673/1082 Time: 2446.5s Loss: 0.53   Average_Loss: 0.52
+2024-10-25 07:59:56,531 - Epoch: 5/64 Batch: 705/1082 Time: 2534.5s Loss: 0.49   Average_Loss: 0.52
+2024-10-25 08:02:06,155 - Epoch: 5/64 Batch: 737/1082 Time: 2664.1s Loss: 0.52   Average_Loss: 0.52
+2024-10-25 08:04:07,884 - Epoch: 5/64 Batch: 769/1082 Time: 2785.8s Loss: 0.51   Average_Loss: 0.52
+2024-10-25 08:05:34,659 - Epoch: 5/64 Batch: 801/1082 Time: 2872.6s Loss: 0.55   Average_Loss: 0.52
+2024-10-25 08:07:41,076 - Epoch: 5/64 Batch: 833/1082 Time: 2999.0s Loss: 0.57   Average_Loss: 0.52
+2024-10-25 08:09:40,846 - Epoch: 5/64 Batch: 865/1082 Time: 3118.8s Loss: 0.51   Average_Loss: 0.52
+2024-10-25 08:11:13,663 - Epoch: 5/64 Batch: 897/1082 Time: 3211.6s Loss: 0.47   Average_Loss: 0.52
+2024-10-25 08:13:16,849 - Epoch: 5/64 Batch: 929/1082 Time: 3334.8s Loss: 0.55   Average_Loss: 0.52
+2024-10-25 08:15:17,253 - Epoch: 5/64 Batch: 961/1082 Time: 3455.2s Loss: 0.55   Average_Loss: 0.52
+2024-10-25 08:16:50,040 - Epoch: 5/64 Batch: 993/1082 Time: 3548.0s Loss: 0.50   Average_Loss: 0.52
+2024-10-25 08:18:56,181 - Epoch: 5/64 Batch: 1025/1082 Time: 3674.1s Loss: 0.53   Average_Loss: 0.52
+2024-10-25 08:21:01,369 - Epoch: 5/64 Batch: 1057/1082 Time: 3799.3s Loss: 0.49   Average_Loss: 0.52
+2024-10-25 08:21:36,076 - 
+Epoch 5/64,  Loss: 0.5181207023905298, Total time: 1h 3m 54s
+2024-10-25 08:21:36,076 - -----------------validate-----------------
+2024-10-25 09:42:01,664 - Epoch 5, total_user:138493.0 nDCG@5: 0.3562555995529683, HR5: 0.6679976605315792, nDCG@10: 0.3981241941556845, HR10: 0.8037012701002939, nDCG@20: 0.421907555365566, HR20: 0.8989624024318918
+2024-10-25 09:42:01,666 - Validation score increased.  Saving model ...
+2024-10-25 09:42:50,272 - Epoch: 6/64 Batch: 1/1082 Time: 48.5s Loss: 0.55   Average_Loss: 0.55
+2024-10-25 09:44:31,367 - Epoch: 6/64 Batch: 33/1082 Time: 149.6s Loss: 0.49   Average_Loss: 0.51
+2024-10-25 09:46:26,961 - Epoch: 6/64 Batch: 65/1082 Time: 265.1s Loss: 0.54   Average_Loss: 0.52
+2024-10-25 09:48:20,068 - Epoch: 6/64 Batch: 97/1082 Time: 378.3s Loss: 0.58   Average_Loss: 0.52
+2024-10-25 09:50:19,362 - Epoch: 6/64 Batch: 129/1082 Time: 497.5s Loss: 0.49   Average_Loss: 0.52
+2024-10-25 09:52:13,430 - Epoch: 6/64 Batch: 161/1082 Time: 611.6s Loss: 0.50   Average_Loss: 0.52
+2024-10-25 09:54:03,139 - Epoch: 6/64 Batch: 193/1082 Time: 721.3s Loss: 0.47   Average_Loss: 0.52
+2024-10-25 09:56:04,553 - Epoch: 6/64 Batch: 225/1082 Time: 842.7s Loss: 0.49   Average_Loss: 0.51
+2024-10-25 09:57:53,847 - Epoch: 6/64 Batch: 257/1082 Time: 952.0s Loss: 0.49   Average_Loss: 0.51
+2024-10-25 09:59:35,471 - Epoch: 6/64 Batch: 289/1082 Time: 1053.7s Loss: 0.52   Average_Loss: 0.51
+2024-10-25 10:01:43,650 - Epoch: 6/64 Batch: 321/1082 Time: 1181.8s Loss: 0.50   Average_Loss: 0.51
+2024-10-25 10:03:22,536 - Epoch: 6/64 Batch: 353/1082 Time: 1280.7s Loss: 0.49   Average_Loss: 0.51
+2024-10-25 10:05:20,143 - Epoch: 6/64 Batch: 385/1082 Time: 1398.3s Loss: 0.50   Average_Loss: 0.51
+2024-10-25 10:07:25,257 - Epoch: 6/64 Batch: 417/1082 Time: 1523.4s Loss: 0.44   Average_Loss: 0.51
+2024-10-25 10:09:02,475 - Epoch: 6/64 Batch: 449/1082 Time: 1620.7s Loss: 0.47   Average_Loss: 0.51
+2024-10-25 10:11:02,061 - Epoch: 6/64 Batch: 481/1082 Time: 1740.2s Loss: 0.50   Average_Loss: 0.51
+2024-10-25 10:13:10,349 - Epoch: 6/64 Batch: 513/1082 Time: 1868.5s Loss: 0.49   Average_Loss: 0.51
+2024-10-25 10:14:40,468 - Epoch: 6/64 Batch: 545/1082 Time: 1958.7s Loss: 0.52   Average_Loss: 0.51
+2024-10-25 10:16:50,567 - Epoch: 6/64 Batch: 577/1082 Time: 2088.8s Loss: 0.53   Average_Loss: 0.51
+2024-10-25 10:18:52,167 - Epoch: 6/64 Batch: 609/1082 Time: 2210.4s Loss: 0.52   Average_Loss: 0.51
+2024-10-25 10:20:21,355 - Epoch: 6/64 Batch: 641/1082 Time: 2299.5s Loss: 0.50   Average_Loss: 0.51
+2024-10-25 10:22:32,047 - Epoch: 6/64 Batch: 673/1082 Time: 2430.2s Loss: 0.49   Average_Loss: 0.51
+2024-10-25 10:24:31,633 - Epoch: 6/64 Batch: 705/1082 Time: 2549.8s Loss: 0.47   Average_Loss: 0.51
+2024-10-25 10:26:00,471 - Epoch: 6/64 Batch: 737/1082 Time: 2638.7s Loss: 0.48   Average_Loss: 0.51
+2024-10-25 10:27:59,948 - Epoch: 6/64 Batch: 769/1082 Time: 2758.1s Loss: 0.48   Average_Loss: 0.51
+2024-10-25 10:29:54,442 - Epoch: 6/64 Batch: 801/1082 Time: 2872.6s Loss: 0.48   Average_Loss: 0.51
+2024-10-25 10:31:35,477 - Epoch: 6/64 Batch: 833/1082 Time: 2973.7s Loss: 0.49   Average_Loss: 0.50
+2024-10-25 10:33:28,647 - Epoch: 6/64 Batch: 865/1082 Time: 3086.8s Loss: 0.42   Average_Loss: 0.50
+2024-10-25 10:35:29,373 - Epoch: 6/64 Batch: 897/1082 Time: 3207.6s Loss: 0.46   Average_Loss: 0.50
+2024-10-25 10:37:21,084 - Epoch: 6/64 Batch: 929/1082 Time: 3319.3s Loss: 0.47   Average_Loss: 0.50
+2024-10-25 10:39:20,752 - Epoch: 6/64 Batch: 961/1082 Time: 3438.9s Loss: 0.51   Average_Loss: 0.50
+2024-10-25 10:41:11,047 - Epoch: 6/64 Batch: 993/1082 Time: 3549.2s Loss: 0.49   Average_Loss: 0.50
+2024-10-25 10:42:55,744 - Epoch: 6/64 Batch: 1025/1082 Time: 3653.9s Loss: 0.46   Average_Loss: 0.50
+2024-10-25 10:44:57,641 - Epoch: 6/64 Batch: 1057/1082 Time: 3775.8s Loss: 0.47   Average_Loss: 0.50
+2024-10-25 10:45:50,927 - 
+Epoch 6/64,  Loss: 0.4955780466471053, Total time: 1h 3m 49s
+2024-10-25 10:45:50,929 - -----------------validate-----------------
+2024-10-25 12:06:57,953 - Epoch 6, total_user:138493.0 nDCG@5: 0.3957574092603788, HR5: 0.7296253240235968, nDCG@10: 0.43145625529531734, HR10: 0.8451979522430737, nDCG@20: 0.44987083315227444, HR20: 0.9189706338948539
+2024-10-25 12:06:57,954 - Validation score increased.  Saving model ...
+2024-10-25 12:07:44,162 - Epoch: 7/64 Batch: 1/1082 Time: 46.1s Loss: 0.45   Average_Loss: 0.45
+2024-10-25 12:09:20,529 - Epoch: 7/64 Batch: 33/1082 Time: 142.4s Loss: 0.46   Average_Loss: 0.45
+2024-10-25 12:11:25,963 - Epoch: 7/64 Batch: 65/1082 Time: 267.9s Loss: 0.42   Average_Loss: 0.44
+2024-10-25 12:13:32,459 - Epoch: 7/64 Batch: 97/1082 Time: 394.4s Loss: 0.44   Average_Loss: 0.44
+2024-10-25 12:15:13,470 - Epoch: 7/64 Batch: 129/1082 Time: 495.4s Loss: 0.45   Average_Loss: 0.44
+2024-10-25 12:17:01,384 - Epoch: 7/64 Batch: 161/1082 Time: 603.3s Loss: 0.45   Average_Loss: 0.44
+2024-10-25 12:19:08,662 - Epoch: 7/64 Batch: 193/1082 Time: 730.6s Loss: 0.40   Average_Loss: 0.44
+2024-10-25 12:20:54,344 - Epoch: 7/64 Batch: 225/1082 Time: 836.2s Loss: 0.43   Average_Loss: 0.44
+2024-10-25 12:22:54,028 - Epoch: 7/64 Batch: 257/1082 Time: 955.9s Loss: 0.42   Average_Loss: 0.44
+2024-10-25 12:24:34,559 - Epoch: 7/64 Batch: 289/1082 Time: 1056.5s Loss: 0.38   Average_Loss: 0.43
+2024-10-25 12:26:27,193 - Epoch: 7/64 Batch: 321/1082 Time: 1169.1s Loss: 0.43   Average_Loss: 0.43
+2024-10-25 12:28:18,381 - Epoch: 7/64 Batch: 353/1082 Time: 1280.3s Loss: 0.43   Average_Loss: 0.43
+2024-10-25 12:30:03,134 - Epoch: 7/64 Batch: 385/1082 Time: 1385.0s Loss: 0.43   Average_Loss: 0.43
+2024-10-25 12:32:15,673 - Epoch: 7/64 Batch: 417/1082 Time: 1517.6s Loss: 0.40   Average_Loss: 0.43
+2024-10-25 12:33:56,949 - Epoch: 7/64 Batch: 449/1082 Time: 1618.9s Loss: 0.42   Average_Loss: 0.43
+2024-10-25 12:35:45,076 - Epoch: 7/64 Batch: 481/1082 Time: 1727.0s Loss: 0.38   Average_Loss: 0.43
+2024-10-25 12:37:46,686 - Epoch: 7/64 Batch: 513/1082 Time: 1848.6s Loss: 0.42   Average_Loss: 0.43
+2024-10-25 12:39:25,360 - Epoch: 7/64 Batch: 545/1082 Time: 1947.3s Loss: 0.42   Average_Loss: 0.43
+2024-10-25 12:41:18,939 - Epoch: 7/64 Batch: 577/1082 Time: 2060.8s Loss: 0.40   Average_Loss: 0.43
+2024-10-25 12:43:29,373 - Epoch: 7/64 Batch: 609/1082 Time: 2191.3s Loss: 0.41   Average_Loss: 0.42
+2024-10-25 12:45:18,872 - Epoch: 7/64 Batch: 641/1082 Time: 2300.8s Loss: 0.41   Average_Loss: 0.42
+2024-10-25 12:46:50,569 - Epoch: 7/64 Batch: 673/1082 Time: 2392.5s Loss: 0.37   Average_Loss: 0.42
+2024-10-25 12:48:45,857 - Epoch: 7/64 Batch: 705/1082 Time: 2507.8s Loss: 0.40   Average_Loss: 0.42
+2024-10-25 12:50:49,369 - Epoch: 7/64 Batch: 737/1082 Time: 2631.3s Loss: 0.39   Average_Loss: 0.42
+2024-10-25 12:52:23,561 - Epoch: 7/64 Batch: 769/1082 Time: 2725.5s Loss: 0.42   Average_Loss: 0.42
+2024-10-25 12:54:29,764 - Epoch: 7/64 Batch: 801/1082 Time: 2851.7s Loss: 0.42   Average_Loss: 0.42
+2024-10-25 12:56:35,971 - Epoch: 7/64 Batch: 833/1082 Time: 2977.9s Loss: 0.39   Average_Loss: 0.42
+2024-10-25 12:58:08,245 - Epoch: 7/64 Batch: 865/1082 Time: 3070.1s Loss: 0.43   Average_Loss: 0.42
+2024-10-25 13:00:04,764 - Epoch: 7/64 Batch: 897/1082 Time: 3186.7s Loss: 0.35   Average_Loss: 0.42
+2024-10-25 13:02:11,397 - Epoch: 7/64 Batch: 929/1082 Time: 3313.3s Loss: 0.36   Average_Loss: 0.42
+2024-10-25 13:03:34,672 - Epoch: 7/64 Batch: 961/1082 Time: 3396.6s Loss: 0.38   Average_Loss: 0.41
+2024-10-25 13:05:35,636 - Epoch: 7/64 Batch: 993/1082 Time: 3517.5s Loss: 0.35   Average_Loss: 0.41
+2024-10-25 13:07:37,064 - Epoch: 7/64 Batch: 1025/1082 Time: 3639.0s Loss: 0.41   Average_Loss: 0.41
+2024-10-25 13:09:02,346 - Epoch: 7/64 Batch: 1057/1082 Time: 3724.2s Loss: 0.36   Average_Loss: 0.41
+2024-10-25 13:10:23,568 - 
+Epoch 7/64,  Loss: 0.4119790483699929, Total time: 1h 3m 25s
+2024-10-25 13:10:23,569 - -----------------validate-----------------
+2024-10-25 14:29:29,994 - Epoch 7, total_user:138493.0 nDCG@5: 0.3744386436984058, HR5: 0.705270302470161, nDCG@10: 0.41467668825129694, HR10: 0.8354357259933715, nDCG@20: 0.4347190497209296, HR20: 0.9156636075469519
+2024-10-25 14:29:29,995 - EarlyStopping counter: 1 out of 5
+2024-10-25 14:30:09,657 - Epoch: 8/64 Batch: 1/1082 Time: 39.7s Loss: 0.37   Average_Loss: 0.37
+2024-10-25 14:31:49,356 - Epoch: 8/64 Batch: 33/1082 Time: 139.4s Loss: 0.38   Average_Loss: 0.38
+2024-10-25 14:33:50,339 - Epoch: 8/64 Batch: 65/1082 Time: 260.3s Loss: 0.37   Average_Loss: 0.38
+2024-10-25 14:35:52,168 - Epoch: 8/64 Batch: 97/1082 Time: 382.2s Loss: 0.38   Average_Loss: 0.38
+2024-10-25 14:37:37,858 - Epoch: 8/64 Batch: 129/1082 Time: 487.9s Loss: 0.38   Average_Loss: 0.38
+2024-10-25 14:39:50,848 - Epoch: 8/64 Batch: 161/1082 Time: 620.9s Loss: 0.38   Average_Loss: 0.38
+2024-10-25 14:41:42,647 - Epoch: 8/64 Batch: 193/1082 Time: 732.7s Loss: 0.43   Average_Loss: 0.38
+2024-10-25 14:43:19,578 - Epoch: 8/64 Batch: 225/1082 Time: 829.6s Loss: 0.39   Average_Loss: 0.38
+2024-10-25 14:45:25,637 - Epoch: 8/64 Batch: 257/1082 Time: 955.6s Loss: 0.34   Average_Loss: 0.38
+2024-10-25 14:47:24,565 - Epoch: 8/64 Batch: 289/1082 Time: 1074.6s Loss: 0.37   Average_Loss: 0.38
+2024-10-25 14:49:04,434 - Epoch: 8/64 Batch: 321/1082 Time: 1174.4s Loss: 0.42   Average_Loss: 0.38
+2024-10-25 14:51:09,534 - Epoch: 8/64 Batch: 353/1082 Time: 1299.5s Loss: 0.42   Average_Loss: 0.38
+2024-10-25 14:52:46,963 - Epoch: 8/64 Batch: 385/1082 Time: 1397.0s Loss: 0.39   Average_Loss: 0.38
+2024-10-25 14:54:55,679 - Epoch: 8/64 Batch: 417/1082 Time: 1525.7s Loss: 0.33   Average_Loss: 0.38
+2024-10-25 14:56:56,635 - Epoch: 8/64 Batch: 449/1082 Time: 1646.6s Loss: 0.36   Average_Loss: 0.38
+2024-10-25 14:58:29,942 - Epoch: 8/64 Batch: 481/1082 Time: 1739.9s Loss: 0.33   Average_Loss: 0.38
+2024-10-25 15:00:32,546 - Epoch: 8/64 Batch: 513/1082 Time: 1862.5s Loss: 0.38   Average_Loss: 0.38
+2024-10-25 15:02:38,931 - Epoch: 8/64 Batch: 545/1082 Time: 1988.9s Loss: 0.37   Average_Loss: 0.38
+2024-10-25 15:04:03,851 - Epoch: 8/64 Batch: 577/1082 Time: 2073.9s Loss: 0.38   Average_Loss: 0.37
+2024-10-25 15:06:06,275 - Epoch: 8/64 Batch: 609/1082 Time: 2196.3s Loss: 0.40   Average_Loss: 0.37
+2024-10-25 15:08:08,980 - Epoch: 8/64 Batch: 641/1082 Time: 2319.0s Loss: 0.37   Average_Loss: 0.37
+2024-10-25 15:09:51,870 - Epoch: 8/64 Batch: 673/1082 Time: 2421.9s Loss: 0.37   Average_Loss: 0.37
+2024-10-25 15:12:01,890 - Epoch: 8/64 Batch: 705/1082 Time: 2551.9s Loss: 0.37   Average_Loss: 0.37
+2024-10-25 15:13:53,785 - Epoch: 8/64 Batch: 737/1082 Time: 2663.8s Loss: 0.34   Average_Loss: 0.37
+2024-10-25 15:15:40,953 - Epoch: 8/64 Batch: 769/1082 Time: 2771.0s Loss: 0.37   Average_Loss: 0.37
+2024-10-25 15:17:35,846 - Epoch: 8/64 Batch: 801/1082 Time: 2885.8s Loss: 0.36   Average_Loss: 0.37
+2024-10-25 15:19:44,551 - Epoch: 8/64 Batch: 833/1082 Time: 3014.6s Loss: 0.32   Average_Loss: 0.37
+2024-10-25 15:21:23,564 - Epoch: 8/64 Batch: 865/1082 Time: 3113.6s Loss: 0.33   Average_Loss: 0.37
+2024-10-25 15:23:13,664 - Epoch: 8/64 Batch: 897/1082 Time: 3223.7s Loss: 0.38   Average_Loss: 0.37
+2024-10-25 15:25:16,954 - Epoch: 8/64 Batch: 929/1082 Time: 3347.0s Loss: 0.35   Average_Loss: 0.37
+2024-10-25 15:26:59,046 - Epoch: 8/64 Batch: 961/1082 Time: 3449.0s Loss: 0.32   Average_Loss: 0.37
+2024-10-25 15:29:12,134 - Epoch: 8/64 Batch: 993/1082 Time: 3582.1s Loss: 0.35   Average_Loss: 0.37
+2024-10-25 15:30:46,046 - Epoch: 8/64 Batch: 1025/1082 Time: 3676.0s Loss: 0.36   Average_Loss: 0.37
+2024-10-25 15:32:49,977 - Epoch: 8/64 Batch: 1057/1082 Time: 3800.0s Loss: 0.37   Average_Loss: 0.37
+2024-10-25 15:33:44,863 - 
+Epoch 8/64,  Loss: 0.3684542105015016, Total time: 1h 4m 14s
+2024-10-25 15:33:44,864 - -----------------validate-----------------
+2024-10-25 16:51:32,319 - Epoch 8, total_user:138493.0 nDCG@5: 0.2829711289310244, HR5: 0.5302145234777209, nDCG@10: 0.32224262271057585, HR10: 0.6579827139277797, nDCG@20: 0.3565144016164227, HR20: 0.7966395413486602
+2024-10-25 16:51:32,320 - EarlyStopping counter: 2 out of 5
+2024-10-25 16:52:13,930 - Epoch: 9/64 Batch: 1/1082 Time: 41.6s Loss: 0.36   Average_Loss: 0.36
+2024-10-25 16:53:49,268 - Epoch: 9/64 Batch: 33/1082 Time: 136.9s Loss: 0.36   Average_Loss: 0.35
+2024-10-25 16:56:00,677 - Epoch: 9/64 Batch: 65/1082 Time: 268.4s Loss: 0.38   Average_Loss: 0.35
+2024-10-25 16:57:46,347 - Epoch: 9/64 Batch: 97/1082 Time: 374.0s Loss: 0.32   Average_Loss: 0.35
+2024-10-25 16:59:37,658 - Epoch: 9/64 Batch: 129/1082 Time: 485.3s Loss: 0.33   Average_Loss: 0.35
+2024-10-25 17:01:31,675 - Epoch: 9/64 Batch: 161/1082 Time: 599.4s Loss: 0.34   Average_Loss: 0.35
+2024-10-25 17:03:31,552 - Epoch: 9/64 Batch: 193/1082 Time: 719.2s Loss: 0.31   Average_Loss: 0.35
+2024-10-25 17:05:18,769 - Epoch: 9/64 Batch: 225/1082 Time: 826.4s Loss: 0.35   Average_Loss: 0.35
+2024-10-25 17:07:13,867 - Epoch: 9/64 Batch: 257/1082 Time: 941.5s Loss: 0.33   Average_Loss: 0.35
+2024-10-25 17:09:21,329 - Epoch: 9/64 Batch: 289/1082 Time: 1069.0s Loss: 0.35   Average_Loss: 0.35
+2024-10-25 17:11:04,480 - Epoch: 9/64 Batch: 321/1082 Time: 1172.2s Loss: 0.33   Average_Loss: 0.35
+2024-10-25 17:12:50,961 - Epoch: 9/64 Batch: 353/1082 Time: 1278.6s Loss: 0.31   Average_Loss: 0.35
+2024-10-25 17:14:56,133 - Epoch: 9/64 Batch: 385/1082 Time: 1403.8s Loss: 0.33   Average_Loss: 0.35
+2024-10-25 17:16:37,948 - Epoch: 9/64 Batch: 417/1082 Time: 1505.6s Loss: 0.36   Average_Loss: 0.35
+2024-10-25 17:18:30,569 - Epoch: 9/64 Batch: 449/1082 Time: 1618.2s Loss: 0.35   Average_Loss: 0.34
+2024-10-25 17:20:37,749 - Epoch: 9/64 Batch: 481/1082 Time: 1745.4s Loss: 0.31   Average_Loss: 0.34
+2024-10-25 17:22:08,384 - Epoch: 9/64 Batch: 513/1082 Time: 1836.1s Loss: 0.35   Average_Loss: 0.34
+2024-10-25 17:24:10,759 - Epoch: 9/64 Batch: 545/1082 Time: 1958.4s Loss: 0.30   Average_Loss: 0.34
+2024-10-25 17:26:10,635 - Epoch: 9/64 Batch: 577/1082 Time: 2078.3s Loss: 0.33   Average_Loss: 0.34
+2024-10-25 17:27:42,045 - Epoch: 9/64 Batch: 609/1082 Time: 2169.7s Loss: 0.35   Average_Loss: 0.34
+2024-10-25 17:29:49,076 - Epoch: 9/64 Batch: 641/1082 Time: 2296.8s Loss: 0.30   Average_Loss: 0.34
+2024-10-25 17:31:55,344 - Epoch: 9/64 Batch: 673/1082 Time: 2423.0s Loss: 0.34   Average_Loss: 0.34
+2024-10-25 17:33:17,049 - Epoch: 9/64 Batch: 705/1082 Time: 2504.7s Loss: 0.32   Average_Loss: 0.34
+2024-10-25 17:35:20,055 - Epoch: 9/64 Batch: 737/1082 Time: 2627.7s Loss: 0.31   Average_Loss: 0.34
+2024-10-25 17:37:24,061 - Epoch: 9/64 Batch: 769/1082 Time: 2751.7s Loss: 0.35   Average_Loss: 0.34
+2024-10-25 17:38:50,961 - Epoch: 9/64 Batch: 801/1082 Time: 2838.6s Loss: 0.33   Average_Loss: 0.34
+2024-10-25 17:40:58,555 - Epoch: 9/64 Batch: 833/1082 Time: 2966.2s Loss: 0.36   Average_Loss: 0.34
+2024-10-25 17:43:02,667 - Epoch: 9/64 Batch: 865/1082 Time: 3090.3s Loss: 0.30   Average_Loss: 0.34
+2024-10-25 17:44:27,736 - Epoch: 9/64 Batch: 897/1082 Time: 3175.4s Loss: 0.36   Average_Loss: 0.34
+2024-10-25 17:46:35,430 - Epoch: 9/64 Batch: 929/1082 Time: 3303.1s Loss: 0.37   Average_Loss: 0.34
+2024-10-25 17:48:36,485 - Epoch: 9/64 Batch: 961/1082 Time: 3424.2s Loss: 0.34   Average_Loss: 0.34
+2024-10-25 17:49:56,567 - Epoch: 9/64 Batch: 993/1082 Time: 3504.2s Loss: 0.31   Average_Loss: 0.34
+2024-10-25 17:51:57,676 - Epoch: 9/64 Batch: 1025/1082 Time: 3625.4s Loss: 0.31   Average_Loss: 0.34
+2024-10-25 17:54:07,733 - Epoch: 9/64 Batch: 1057/1082 Time: 3755.4s Loss: 0.32   Average_Loss: 0.34
+2024-10-25 17:54:47,008 - 
+Epoch 9/64,  Loss: 0.33693855568463615, Total time: 1h 3m 14s
+2024-10-25 17:54:47,009 - -----------------validate-----------------
+2024-10-25 19:12:45,902 - Epoch 9, total_user:138493.0 nDCG@5: 0.24203543710052983, HR5: 0.4504487591430614, nDCG@10: 0.27210803963459096, HR10: 0.5483598449019084, nDCG@20: 0.29493670170953334, HR20: 0.6405016860057909
+2024-10-25 19:12:45,903 - EarlyStopping counter: 3 out of 5
+2024-10-25 19:13:37,349 - Epoch: 10/64 Batch: 1/1082 Time: 51.4s Loss: 0.31   Average_Loss: 0.31
+2024-10-25 19:15:07,739 - Epoch: 10/64 Batch: 33/1082 Time: 141.8s Loss: 0.30   Average_Loss: 0.32
+2024-10-25 19:17:13,557 - Epoch: 10/64 Batch: 65/1082 Time: 267.7s Loss: 0.33   Average_Loss: 0.32
+2024-10-25 19:19:20,450 - Epoch: 10/64 Batch: 97/1082 Time: 394.5s Loss: 0.31   Average_Loss: 0.32
+2024-10-25 19:20:52,945 - Epoch: 10/64 Batch: 129/1082 Time: 487.0s Loss: 0.32   Average_Loss: 0.32
+2024-10-25 19:22:57,230 - Epoch: 10/64 Batch: 161/1082 Time: 611.3s Loss: 0.32   Average_Loss: 0.32
+2024-10-25 19:25:01,447 - Epoch: 10/64 Batch: 193/1082 Time: 735.5s Loss: 0.33   Average_Loss: 0.32
+2024-10-25 19:26:39,560 - Epoch: 10/64 Batch: 225/1082 Time: 833.7s Loss: 0.31   Average_Loss: 0.32
+2024-10-25 19:28:41,777 - Epoch: 10/64 Batch: 257/1082 Time: 955.9s Loss: 0.30   Average_Loss: 0.32
+2024-10-25 19:30:40,464 - Epoch: 10/64 Batch: 289/1082 Time: 1074.6s Loss: 0.32   Average_Loss: 0.32
+2024-10-25 19:32:13,848 - Epoch: 10/64 Batch: 321/1082 Time: 1167.9s Loss: 0.31   Average_Loss: 0.32
+2024-10-25 19:34:19,477 - Epoch: 10/64 Batch: 353/1082 Time: 1293.6s Loss: 0.29   Average_Loss: 0.32
+2024-10-25 19:36:29,193 - Epoch: 10/64 Batch: 385/1082 Time: 1423.3s Loss: 0.28   Average_Loss: 0.32
+2024-10-25 19:37:53,350 - Epoch: 10/64 Batch: 417/1082 Time: 1507.4s Loss: 0.29   Average_Loss: 0.31
+2024-10-25 19:39:57,455 - Epoch: 10/64 Batch: 449/1082 Time: 1631.6s Loss: 0.28   Average_Loss: 0.31
+2024-10-25 19:42:02,566 - Epoch: 10/64 Batch: 481/1082 Time: 1756.7s Loss: 0.28   Average_Loss: 0.31
+2024-10-25 19:43:25,933 - Epoch: 10/64 Batch: 513/1082 Time: 1840.0s Loss: 0.29   Average_Loss: 0.31
+2024-10-25 19:45:28,053 - Epoch: 10/64 Batch: 545/1082 Time: 1962.1s Loss: 0.28   Average_Loss: 0.31
+2024-10-25 19:47:44,628 - Epoch: 10/64 Batch: 577/1082 Time: 2098.7s Loss: 0.33   Average_Loss: 0.31
+2024-10-25 19:49:08,076 - Epoch: 10/64 Batch: 609/1082 Time: 2182.2s Loss: 0.32   Average_Loss: 0.31
+2024-10-25 19:51:08,649 - Epoch: 10/64 Batch: 641/1082 Time: 2302.7s Loss: 0.28   Average_Loss: 0.31
+2024-10-25 19:53:11,633 - Epoch: 10/64 Batch: 673/1082 Time: 2425.7s Loss: 0.33   Average_Loss: 0.31
+2024-10-25 19:54:49,075 - Epoch: 10/64 Batch: 705/1082 Time: 2523.2s Loss: 0.30   Average_Loss: 0.31
+2024-10-25 19:56:48,074 - Epoch: 10/64 Batch: 737/1082 Time: 2642.2s Loss: 0.31   Average_Loss: 0.31
+2024-10-25 19:58:55,178 - Epoch: 10/64 Batch: 769/1082 Time: 2769.3s Loss: 0.28   Average_Loss: 0.31
+2024-10-25 20:00:22,452 - Epoch: 10/64 Batch: 801/1082 Time: 2856.5s Loss: 0.33   Average_Loss: 0.31
+2024-10-25 20:02:34,043 - Epoch: 10/64 Batch: 833/1082 Time: 2988.1s Loss: 0.29   Average_Loss: 0.31
+2024-10-25 20:04:31,337 - Epoch: 10/64 Batch: 865/1082 Time: 3105.4s Loss: 0.32   Average_Loss: 0.31
+2024-10-25 20:05:59,884 - Epoch: 10/64 Batch: 897/1082 Time: 3194.0s Loss: 0.27   Average_Loss: 0.31
+2024-10-25 20:08:10,158 - Epoch: 10/64 Batch: 929/1082 Time: 3324.3s Loss: 0.30   Average_Loss: 0.31
+2024-10-25 20:09:49,956 - Epoch: 10/64 Batch: 961/1082 Time: 3424.1s Loss: 0.26   Average_Loss: 0.31
+2024-10-25 20:11:45,477 - Epoch: 10/64 Batch: 993/1082 Time: 3539.6s Loss: 0.33   Average_Loss: 0.31
+2024-10-25 20:13:54,166 - Epoch: 10/64 Batch: 1025/1082 Time: 3668.3s Loss: 0.25   Average_Loss: 0.31
+2024-10-25 20:15:38,360 - Epoch: 10/64 Batch: 1057/1082 Time: 3772.5s Loss: 0.28   Average_Loss: 0.31
+2024-10-25 20:16:25,932 - 
+Epoch 10/64,  Loss: 0.3047891756220137, Total time: 1h 3m 40s
+2024-10-25 20:16:25,934 - -----------------validate-----------------
+2024-10-25 21:34:19,731 - Epoch 10, total_user:138493.0 nDCG@5: 0.2329886835386044, HR5: 0.4293935433559819, nDCG@10: 0.2603529370769147, HR10: 0.5184305343952402, nDCG@20: 0.28066966840095503, HR20: 0.6005429877322319
+2024-10-25 21:34:19,732 - EarlyStopping counter: 4 out of 5
+2024-10-25 21:35:00,347 - Epoch: 11/64 Batch: 1/1082 Time: 40.6s Loss: 0.26   Average_Loss: 0.26
+2024-10-25 21:36:49,239 - Epoch: 11/64 Batch: 33/1082 Time: 149.5s Loss: 0.26   Average_Loss: 0.28
+2024-10-25 21:38:42,777 - Epoch: 11/64 Batch: 65/1082 Time: 263.0s Loss: 0.26   Average_Loss: 0.28
+2024-10-26 01:17:47,698 - read <class 'data_processing.ml_20m'>
+2024-10-26 01:19:30,368 - Namespace(data_dir='./data/', output_dir='output/', data_name='ml-20m', llm_path='./bert-base-uncased', do_eval=True, load_model='TCTRec', train_name='Oct-26-2024_01-17-47', num_items=131262, num_users=138493, num_neg_sample=100, lr=0.003, weight_decay=0, batch_size=128, num_epochs=64, patience=5, num_workers=4, seed=42, model_type='TCTRec', max_seq_length=50, dropout_rate=0.5, hidden_size=64, num_hidden_layers=2, attn_dropout_rate=0.5, n_heads=8, e_layers=4, alpha=0.8, device=device(type='cuda'), checkpoint_path='output/ml-20m/TCTRec.pt', dim_user_discrete_data=[], dim_item_discrete_data=20)
+2024-10-26 01:19:30,564 - TCTRec(
+  (BiTransformer): Bidimensional_Transformer(
+    (encoder): Encoder(
+      (embedding): Embedding(131263, 64, padding_idx=0)
+      (ivert_embedding): Linear(in_features=50, out_features=64, bias=True)
+      (static_embedding): Linear(in_features=1, out_features=64, bias=True)
+      (dropout): Dropout(p=0.5, inplace=False)
+      (projector): Linear(in_features=64, out_features=50, bias=True)
+      (pos_emb): Embedding(50, 64)
+      (layers): ModuleList(
+        (0-3): 4 x EncoderLayer(
+          (mha): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (ivert_mha): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (ff): FeedForward(
+            (linear1): Linear(in_features=64, out_features=64, bias=True)
+            (dropout): Dropout(p=0.5, inplace=False)
+            (linear2): Linear(in_features=64, out_features=64, bias=True)
+          )
+          (ivert_ff): FeedForward(
+            (linear1): Linear(in_features=64, out_features=64, bias=True)
+            (dropout): Dropout(p=0.5, inplace=False)
+            (linear2): Linear(in_features=64, out_features=64, bias=True)
+          )
+          (layernorm1): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (layernorm2): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (ivert_layernorm1): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (ivert_layernorm2): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (dropout): Dropout(p=0.5, inplace=False)
+        )
+      )
+    )
+  )
+)
+2024-10-26 01:19:30,613 - Load model from output/ml-20m/TCTRec.pt for test!
+2024-10-26 01:19:30,613 - -----------------test-----------------
+2024-10-26 02:37:10,708 - Epoch 2, total_user:138493.0 nDCG@5: 0.38792495339246885, HR5: 0.7133717949643664, nDCG@10: 0.42363324910241473, HR10: 0.8290166289992996, nDCG@20: 0.44264178177072466, HR20: 0.9051721025611402
+2024-10-26 02:37:10,709 - Oct-26-2024_01-17-47
